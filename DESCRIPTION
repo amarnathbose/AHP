@@ -1,0 +1,16 @@
+Package: createLogicalPCM
+Type: Package
+Title: Create Logical PCM for AHP
+Version: 0.1.0
+Authors@R: person("Amarnath", "Bose", , "amarnath.bose@gmail.com", role = c("aut", "cre"))
+Description: Create Pairwise Comparison Matrices (PCM) for use in AHP. The PCM created will be a *logical PCM* which unlike a random PCM is similar to what a rational decision maker would create on the basis of a preference vector for the alternatives considered.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.2
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+VignetteBuilder: knitr
+Config/testthat/edition: 3

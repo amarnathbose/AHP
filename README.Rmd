@@ -1,0 +1,49 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# createLogicalPCM
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of createLogicalPCM is to simulate logical pairwise comparison matrices (PCM) for the Analytic Hierarchy Process (AHP). Research in AHP might require PCMs that are logical in the sense that they resemble a PCM created by a rational decision maker
+## Installation
+
+You can install the development version of createLogicalPCM like so:
+
+``` r
+install.packages("createLogicalPCM")
+```
+
+## Example
+
+This is a basic example which shows you how to simulate a logical PCM for pairwise comparison of 5 alternatives with relative preferences given as prefVec in the following illustration.
+
+```{r example}
+prefVec <- c(0.45, 0.1, 0.2, 0.15, 0.1)
+library(createLogicalPCM)
+createLogicalPCM(5, prefVec)
+```
+
+The length of the preference vector has to be the same as parameter 1, that is the order of the required PCM.
+However, it is not necessary to have the elements of the preference vector to add to 1.
+
+If prefVec is not provided the function generates a PCM based on an arbitrary vector of the required length.
+
+## Algorithm
+
+The function is based on an algorithm published in a paper [Consistency re-evaluation in analytic hierarchy process based on simulated consistent matrices](https://doi.org/10.1002/mcda.1784). 
+
+Briefly, the pairwise comparison ratios are computed from the preference vector and thereafter randomly rounded off to one of the three nearest elements from the Fundamental Scale {1/9, 1/8, 1/7, ... 1/2, 1, 2, ... 7, 8, 9}. The resulting PCM is logical, since it is based on a vector of relative preferences for the alternatives. A reasonable degree of tolerance for each element is provided and the elements are constrained to be chosen from the Fundamental Scale. 
